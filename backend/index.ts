@@ -1,8 +1,8 @@
 // api/index.ts
 import dotenv from "dotenv";
 import serverless from "serverless-http";
-import app from "../src/app";
-import { connectDatabase } from "../src/config/database";
+import app from "./src/app";
+import { connectDatabase } from "./src/config/database";
 
 dotenv.config();
 const dbConnectPromise = connectDatabase();
