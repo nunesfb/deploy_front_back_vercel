@@ -3,9 +3,9 @@ import serverless from "serverless-http";
 import app from "./src/app";
 import { connectDatabase } from "./src/config/database";
 
-// Inicia a conexão uma vez em cold start
+// Conecta no cold start (cacheado internamente)
 connectDatabase();
 
-export const config = { maxDuration: 60 };
+export const config = { maxDuration: 60 }; // 60s no Pro
 const handler = serverless(app);
 export default handler;
