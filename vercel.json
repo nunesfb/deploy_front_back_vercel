@@ -12,16 +12,9 @@
     }
   ],
   "routes": [
-    {
-      "src": "/backend/(.*)",
-      "dest": "/backend/src/server.ts"
-    },
-    {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
+    { "src": "/backend/(.*)", "dest": "/backend/src/server.ts" },
+    { "handle": "filesystem" },
+    { "src": "/frontend/(.*)", "dest": "/frontend/dist/$1" },
+    { "src": "/frontend/?(.*)", "dest": "/frontend/dist/index.html" }
   ]
 }
