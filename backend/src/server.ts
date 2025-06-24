@@ -1,4 +1,4 @@
-import serverless from "serverless-http";
+import serverless from "serverless-http"; //npm i
 import app from "./app";
 import { connectDatabase } from "./config/database";
 
