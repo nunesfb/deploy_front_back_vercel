@@ -17,10 +17,20 @@
       "dest": "/backend/index.ts"
     },
     {
-      "handle": "filesystem"
+      "src": "^/$",
+      "status": 302,
+      "dest": "/frontend/"
     },
+
+    { "handle": "filesystem" },
+
     {
-      "src": "/(.*)",
+      "src": "/frontend/(.*)",
+      "dest": "/$1"
+    },
+
+    {
+      "src": "/frontend/?(.*)",
       "dest": "/index.html"
     }
   ]
