@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/index.ts",
+      "src": "backend/src/server.ts",
       "use": "@vercel/node"
     },
     {
@@ -14,11 +14,24 @@
   "routes": [
     {
       "src": "/backend/(.*)",
-      "dest": "/api/index.ts"
+      "dest": "/backend/src/server.ts"
     },
-    { "handle": "filesystem" },
+
     {
-      "src": "/(.*)",
+      "src": "^/$",
+      "status": 302,
+      "dest": "/frontend/"
+    },
+
+    { "handle": "filesystem" },
+
+    {
+      "src": "/frontend/(.*)",
+      "dest": "/$1"
+    },
+
+    {
+      "src": "/frontend/?(.*)",
       "dest": "/index.html"
     }
   ]
