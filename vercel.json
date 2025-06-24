@@ -12,9 +12,27 @@
     }
   ],
   "routes": [
-    { "src": "/backend/(.*)", "dest": "/backend/src/server.ts" },
+    {
+      "src": "/backend/(.*)",
+      "dest": "/backend/src/server.ts"
+    },
+
+    {
+      "src": "^/$",
+      "status": 302,
+      "dest": "/frontend/"
+    },
+
     { "handle": "filesystem" },
-    { "src": "/frontend/(.*)", "dest": "/frontend/dist/$1" },
-    { "src": "/frontend/?(.*)", "dest": "/frontend/dist/index.html" }
+
+    {
+      "src": "/frontend/(.*)",
+      "dest": "/$1"
+    },
+
+    {
+      "src": "/frontend/?(.*)",
+      "dest": "/index.html"
+    }
   ]
 }
